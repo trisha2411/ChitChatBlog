@@ -1,0 +1,120 @@
+body
+{
+	background-image: url("../images/blue.jpg");
+	background-repeat: no-repeat;
+}
+p
+{
+	font-weight:bold;
+	color: #fff;
+	text-align: center;
+	font-size:50px;
+	 letter-spacing: 4px;
+}
+select option
+{
+	width:50%;
+	height:40px;
+	background-image: url("../images/blue.jpg");
+}
+div .inner
+{
+	text-align: center;
+	width:550px;
+	height:450px;
+    margin: 1em auto;
+    padding:10px;
+   
+    	
+}
+
+div .inner .formdiv
+{
+	 width: 85%;
+    margin: 1em auto;
+    text-align: center;
+}
+div .inner .textdiv,.passworddiv
+{
+	
+	text-align: center;
+	border: 1px solid #fff;
+	border-left: none;
+	border-right: none;
+	padding:30px;
+	
+}
+
+div .inner label
+{
+	width:35%;
+	color:#fff;
+	float:left;
+	 border-right: 1px solid #fff;
+}
+
+input 
+{
+	width: 50%;
+    border: none;
+    outline: none;
+    font-size:1em;
+    letter-spacing: 1px;
+    margin-left:10px;
+    float: left;
+    background: transparent;
+	color: #fff;
+	
+}
+
+.submitdiv
+{
+	 margin: 2.5em auto;
+	 margin-left:140px;
+}
+
+.submitdiv input[type="submit"] 
+{
+	
+    color: #fff;
+    padding: 0.3em 1em;
+    outline: none;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 500;
+    border: 1px solid #fff;
+    background: transparent;
+}
+
+.submitdiv input[type="submit"]:hover 
+{
+    background: #ffffff;
+    color: #072866;
+}
+
+.forgot
+{
+	 margin: 3.5em auto;
+	 
+}	
+
+.forgot a
+{
+	color: #fff;
+    padding: 0.3em 1em;
+    outline: none;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 500;
+    border: 1px solid #fff;
+    background: transparent;
+}
+
+.forgot a:hover 
+{
+    background: #ffffff;
+    color: #072866;
+}
+::-webkit-input-placeholder {
+   color: #fff;    
+} 

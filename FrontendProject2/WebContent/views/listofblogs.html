@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="resources/css/listofblogsdesign.css" rel="stylesheet"/>
+</head>
+<body>
+<div>
+Search <input type="text" ng-model="searchTxt"><br>
+<table class="table table-striped"  ng-show="currentUser.role=='ADMIN'">
+<thead>
+<tr><th>Blog title</th><th>Posted On Date</th><th>Posted By</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="blog in blogPostWaitingForApproval" ng-show="currentUser.role=='ADMIN'" >
+<td>
+{{blog.id}}
+<a href="#!blogpostdetails/{{blog.id}}">{{blog.blogTitle}}</a>
+</td>
+<td>
+{{blog.postedOn | date:'YYYY:MM:dd'}}
+</td>
+<td>
+{{blog.postedBy.firstName}}
+</td>
+
+</tr>
+</tbody>
+</table>
+</div><br>
+<div id="tour" class="bg-1">
+  <div class="container" >
+    
+     <p> <b style="margin-left:380px;font-size: 40px;color:#000;">List Of Blogs</b></p><br>
+    <div class="row text-center" >
+      <div class="col-sm-4" ng-repeat="blog in blogPostApproved">
+        <div class="thumbnail">
+          <a href="#!blogpostdetails/{{blog.id}}">
+          
+          <img src="http://localhost:8080/BackendProject2/getblogpic/{{blog.id}}" alt="" width="300px" height="250px" class="img-rounded">
+         		
+         
+         </a>
+          <p><strong>{{blog.blogTitle}}{{blog.id}}</strong></p>
+          <p><b>Posted On Date:</b>{{blog.postedOn | date:'YYYY:MM:dd'}}</p>
+          <a href="#!blogpostdetails/{{blog.id}}"><b>Posted By:</b>{{blog.postedBy.firstName}}</a>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+    
+</body>
+</html>

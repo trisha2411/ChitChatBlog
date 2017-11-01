@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form>
+<div class="form-group">
+Enter username<input type="text" ng-modal="user.userName"   placeholder="Enter username"  class="form-control">
+</div>
+<div class="form-group">
+Enter password<input type="password" ng-modal="user.password"   placeholder="Enter password"  class="form-control">
+</div>
+<div class="form-group">
+<input type="submit" ng-click="login()">
+</div>
+</form>
+<span style="color:red">{{loginFail.message}}</span>
+</body>
+</html>

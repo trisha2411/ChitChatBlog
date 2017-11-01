@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="resources/css/listofjobsdesign.css" rel="stylesheet"/>
+</head>
+<body>
+
+
+<div id="tour" class="bg-1">
+<h3 style="text-align: left;margin-top:20px;font-size: 20px;letter-spacing: 1px;"> Search
+<input type="text" ng-model="searchTxt" style="margin-top:20px;"></h3> <br>
+ <h1 style="text-align: center;color:#fff;font-size: 50px;">List Of Suggested friends</h1>
+  <div class="container" >
+    
+    
+    <div class="row text-center" >
+      <div class="col-sm-4" ng-repeat="user in suggestedUsers | filter:searchTxt">
+        <div class="thumbnail">
+        <br>
+          
+          <img src="http://localhost:8080/BackendProject2/getprofilepic/{{user.userName}}" alt="" width="120" height="50">
+          <p><strong>{{user.firstName}}&nbsp;{{user.lastName}}</strong></p>
+          <p><b>{{mutualFriends[user.userName].length}}
+			<a ng-click="showFriends()">
+			<span ng-show="show" >{{mutualFriends[user.userName]}}</span>Mutual Friends</a></b></p>
+            <br>
+            <a class="btn btn-default" ng-click="sendFriendRequest(user.userName)">Send Friend Request</a>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+</body>
+</html>

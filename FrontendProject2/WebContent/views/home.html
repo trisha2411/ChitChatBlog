@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="resources/css/homedesign.css" rel="stylesheet"/>
+<script defer src="resources/js/jquery.flexslider.js"></script>
+	<script type="text/javascript">
+		$(window).load(function(){
+		  $('.flexslider').flexslider({
+			animation: "slide",
+			start: function(slider){
+			  $('body').removeClass('loading');
+			}
+		  });
+		});
+	</script>
+</head>
+<body>
+
+
+<div class="w3ls-banner">
+
+<div class="banner-text"> 
+			<div class="flexslider">
+				<ul class="slides">
+					<li>
+						<p>Welcome To</p>
+						<h2>ChitChatBlog</h2>
+						<span><i class="fa fa-square-o" aria-hidden="true"></i><i class="fa fa-square-o" aria-hidden="true"></i><i class="fa fa-square-o" aria-hidden="true"></i></span> 
+						<h5>Let's make Friends</h5>
+					</li>
+					<li>
+						<p>Welcome To</p>
+						<h3>Blog Portal</h3>
+						<span><i class="fa fa-square-o" aria-hidden="true"></i><i class="fa fa-square-o" aria-hidden="true"></i><i class="fa fa-square-o" aria-hidden="true"></i></span>
+						<h5>Let's share what you think</h5>
+					</li>
+					<li>
+						<p>Welcome To</p>
+						<h3>Job Portal</h3>
+						<span><i class="fa fa-square-o" aria-hidden="true"></i><i class="fa fa-square-o" aria-hidden="true"></i><i class="fa fa-square-o" aria-hidden="true"></i></span>
+						<h5>Let's start your Career from Here </h5>
+					</li>
+				</ul>
+			</div>    
+		</div> 
+</div>
+<div class="gallery" id="gallery">
+		<div class="container">
+			<div class="wthree-tittle">
+		      <h2 class="agile_title one" style="text-align: center;"><b>Latest Jobs</b></h2>
+			 
+		   </div>
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+					<ul id="myTab" class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#!home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home-main" aria-expanded="true">All</a></li>
+						<li role="presentation"><a href="#webdeveloper" role="tab" id="learning-tab" data-toggle="tab" aria-controls="learning">Web Developer</a></li>
+						<li role="presentation"><a href="#softwaredeveloper" role="tab" id="playing-tab" data-toggle="tab" aria-controls="playing">Software Developer</a></li>
+						<li role="presentation"><a href="#htmltrainer" role="tab" id="painting-tab" data-toggle="tab" aria-controls="painting">Html Trainer</a></li>
+						<li role="presentation"><a href="#softwaredesigner" role="tab" id="school-tab" data-toggle="tab" aria-controls="school">Software Designer</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="home-main" aria-labelledby="home-tab">
+							<div class="w3_tab_img" >
+								<div class="col-sm-3 w3_tab_img_left" ng-repeat="job in jobs">
+								<div class="agile-gallery-info">
+										<h5 style="letter-spacing: 1px;"> {{job.jobTittle}} </h5>
+										<h5></h5>
+									</div>
+									<div class="demo">
+										<a class="cm-overlay" href="#!getjobdetails/{{job.id}}" >
+										  <figure class="imghvr-shutter-in-out-diag-2"><img src="resources/images/job3.png" alt=" " class="img-responsive" />
+										  </figure>
+										</a>
+									</div><br>
+									
+								</div>
+								
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="htmltrainer" aria-labelledby="painting-tab">
+							<div class="w3_tab_img">
+								<div class="col-sm-3 w3_tab_img_left">
+									<div class="demo">
+										<a class="cm-overlay" href="images/g1.jpg">
+											<figure class="imghvr-shutter-in-out-diag-2"><img src="resources/images/1.jpg" alt=" " class="img-responsive">
+											</figure>
+										</a>
+									</div>
+									<div class="agile-gallery-info">
+										<h5>Html </h5>
+										<h5>Trainer</h5>
+									</div>
+								</div>
+								<div class="col-sm-3 w3_tab_img_left">
+									<div class="demo">
+										<a class="cm-overlay" href="images/g2.jpg">
+											<figure class="imghvr-shutter-in-out-diag-2"><img src="resources/images/1.jpg" alt=" " class="img-responsive">
+											</figure>
+										</a>
+									</div>
+									<div class="agile-gallery-info">
+										<h5>Html </h5>
+										<h5>Trainer</h5>
+									</div>
+								</div>
+								<div class="col-sm-3 w3_tab_img_left">
+									<div class="demo">
+										<a class="cm-overlay" href="images/g3.jpg">
+											<figure class="imghvr-shutter-in-out-diag-2"><img src="resources/images/1.jpg" alt=" " class="img-responsive">
+											</figure>
+										</a>
+									</div>
+									<div class="agile-gallery-info">
+										<h5>Html </h5>
+										<h5>Trainer</h5>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="softwaredesigner" aria-labelledby="school-tab">
+							<div class="w3_tab_img">
+								<div class="col-sm-3 w3_tab_img_left">
+									<div class="demo">
+										<a class="cm-overlay" href="images/g4.jpg">
+											<figure class="imghvr-shutter-in-out-diag-2"><img src="resources/images/1.jpg" alt=" " class="img-responsive">
+											</figure>
+										</a>
+									</div>
+									<div class="agile-gallery-info">
+										<h5>Software </h5>
+										<h5>Designer</h5>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+					</div>
+			</div>
+		
+		</div>
+	</div>
+
+<div class="bgimg-2">
+  <div class="caption">
+    <span class="border" style="background-color:transparent;font-size:35px;color: #000000;"><b>Start Searching Job</b></span>
+  </div>
+</div>
+
+<div class="gallery">
+		<div class="container">
+		   <div class="divtitle">
+		    <h2 style="text-align: center;"><b>Trending Blogs</b></h2>
+		   </div><br>
+		  <div class="row text-center" style="margin-left: 40px;" >
+		      <div class="col-sm-4" ng-repeat="blog in blogPostApproved">
+		        <div class="thumbnail">
+		           <a href="#!blogpostdetails/{{blog.id}}">
+							<div class="centered"><h3><b style="color: black;font-size: 25px;">{{blog.blogTitle}}</b></h3></div>
+					<img src="resources/images/blog2.jpg" style="width:350px;height:250px;" alt=" " class="img-responsive" />
+							
+			      </a>
+			  </div>
+		    </div>
+		    
+		 </div>
+		   
+		   
+		   
+		</div>
+</div>
+
+<div class="bgimg-3">
+  <div class="caption">
+    <span class="border" style="background-color:transparent;font-size:35px;color: #000000;"><b>Share your hinking</b></span>
+  </div>
+</div>
+
+
+
+
+
+</body>
+</html>

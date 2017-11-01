@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link href="resources/css/logindesign.css" rel="stylesheet"/>
+</head>
+<body>
+<p>Login Here!<p> 
+    
+    <div class="inner">
+               
+		<div class="formdiv">			 	
+			<form name="myForm"> 
+				<div class="textdiv">			
+				<label>User Name </label>
+				<input type="text" name="user" class="name"   ng-model="user.userName" placeholder="Enter username"  required>
+				
+				
+				</div>	
+				<div class="passworddiv">				        
+				<label>	Password</label>
+				<input type="password" name="password" class="password" ng-model="user.password" placeholder="Enter password"  required>
+				 
+				 </div>      
+				     
+				 <br>
+				<div class="submitdiv">
+				<input type="submit" class="submit" ng-click="login()"> 
+				</div>
+			</form> 	
+			   <span style="color:red"> {{loginFail.message}}</span>
+			</div>	
+					<br>		
+							<div class="forgot"> 
+								<a href="#!forgotpassword">Forgot password?</a>
+						    </div>
+               
+           </div>
+
+
+ </body>
+ </html>

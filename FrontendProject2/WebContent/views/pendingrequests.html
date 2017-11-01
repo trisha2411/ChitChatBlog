@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="resources/css/listofjobsdesign.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="tour" class="bg-1">
+<h3 style="text-align: right;margin-top:20px;margin-right:20px;font-size: 20px;letter-spacing: 1px;"> Search
+<input type="text" ng-model="searchTxt" style="margin-top:20px;"></h3> <br>
+ <h1 style="text-align: center;color:#fff;font-size: 50px;">List Of Friend Request</h1>
+  <div class="container" >
+    
+    
+    <div class="row text-center" >
+      <div class="col-sm-4" ng-repeat="request in pendingRequests | filter:searchTxt">
+        <div class="thumbnail">
+          <a ng-click="getUserDetails(request.fromId)">
+			<img src="http://localhost:8080/BackendProject2/getprofilepic/{{request.fromId}}" class="img-circle" height="50px" width="50px">
+			</a>
+          <p><strong><a ng-click="getUserDetails(request.fromId)">{{request.fromId}}</a></strong></p>
+          <p><a href="" class="btn btn-default" ng-click="updatePendingRequest(request,'A')">Accept</a>
+			<a href="" class="btn btn-default" ng-click="updatePendingRequest(request,'D')">Delete Request</a>
+			</p>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+</body>
+</html>

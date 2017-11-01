@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="resources/css/jobdetailsdesign.css" rel="stylesheet"/>
+</head>
+<body>
+ <div class="maindiv">
+  
+    
+    
+    
+      <div class="col-sm-4"  >
+        
+          <h1 style="text-align: center;">{{jobDetails.jobTittle}}</h1>
+      </div><br><br><br><br><br>
+      <div class="col2">
+        <table style="width:100%;">
+        <tr>
+         <td style="width:30%;"> 
+            <h3 style="font-size: 20px;letter-spacing: 1px;margin-left:5px;"><b>Company Name:</b>
+               
+            </h3>
+         </td>
+         <td>
+             <h3 style="font-size: 20px;letter-spacing: 1px;">{{jobDetails.companyName}}
+              
+             </h3>
+    
+         </td>
+        </tr>
+        <tr>
+        <td style="width:30%;"> 
+         <h3 style="font-size: 20px;letter-spacing: 1px;margin-left:5px;">
+               <b>Job Description:</b>
+         </h3>
+        </td>
+        <td>
+          <h3 style="font-size: 20px;letter-spacing: 1px;">
+               {{jobDetails.jobDescription}}<br>
+              
+             </h3>
+        </td>
+        </tr>
+        <tr>
+        <td style="width:30%;">
+          <h3 style="font-size: 20px;letter-spacing: 1px;margin-left:5px;">
+             <b>Job Location:</b>
+            </h3>
+        </td>
+        <td>
+         <h3 style="font-size: 20px;letter-spacing: 1px;">
+              {{jobDetails.location}}
+             </h3>
+        </td>
+        </tr>
+        <tr>
+        <td style="width:30%;">
+          <h3 style="font-size: 20px;letter-spacing: 1px;margin-left:5px;">
+             <b>Salary:</b>
+            </h3>
+        </td>
+        <td>
+         <h3 style="font-size: 20px;letter-spacing: 1px;">
+              {{jobDetails.salary}}
+             </h3>
+        </td>
+        </tr>
+       </table>
+      </div><br><br>
+      <div class="submit">
+         <input type="submit" value="Apply" ng-click="applyForJob()">
+      </div>
+      </div>
+      
+</body>
+</html>

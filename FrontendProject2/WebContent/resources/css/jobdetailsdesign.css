@@ -1,0 +1,44 @@
+.col-sm-4
+{
+	width:40%;
+	height:20%;
+	margin-left:300px;
+	margin-top:10px;
+	
+	color: #fff;
+}
+.col2
+{
+    width:70%;
+	height:60%;
+	margin-left:140px;
+	
+	color: #fff;	
+}
+
+.submit input[type="submit"]
+{
+	 width:28%;
+	height:35px;
+	margin-left:400px;
+	background-color:#000000;	
+	color: #fff;
+}
+ 
+  .maindiv {
+      padding: 80px 120px;
+      height:550px;
+     
+       background-image: url("../images/i17.jpg");
+  }
+ 
+  .innerdiv {
+      background-image: url("../images/i17.jpg");
+      color: #bdbdbd;
+       height:350px;
+        opacity:0.1;
+       width:70%;
+       margin: auto;
+  }
+  
+  

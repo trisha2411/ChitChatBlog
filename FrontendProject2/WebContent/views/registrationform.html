@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="resources/css/registrationdesign.css" rel="stylesheet">
+
+</head>
+<body>
+ <p>User Registration Form<p>
+ <span style="color:red">{{exception.message}}</span>
+	
+	<div class="maindiv">
+		<form>
+		<table class="table1">
+		  <tr >
+		   <td>
+		    <table class="table2">
+		       <tr>
+		       
+		        
+				<td><input type="text" class="username" placeholder="Enter username" ng-model="user.userName"   required="required">
+	             <span style="color:red">{{duplicateUsername.message}}</span>
+	            </td>
+			  </tr>
+			    <tr>
+				   
+				   <td><input type="password" name="password" class="password" placeholder="Enter password" ng-model="user.password"  required="required">
+	               </td>
+	            </tr>
+	            <tr>
+	            
+				   
+				<td><input type="text" class="firstname" name="firstname" placeholder="Enter firstname" ng-model="user.firstName"  required="required">
+	            </td> 
+	            </tr>
+	            <tr>
+	               
+				  
+				  <td><input type="text" class="lastname" name="lastname" placeholder="Enter lastname" ng-model="user.lastName"   required="required">
+	            </td>
+	            </tr>
+	            </table>
+		   </td>
+		   <td>
+		     <table class="table3">
+		      
+		     <tr>
+			<td style="font-weight:bold;color:#000;font-size:20px;">Select Role</td>
+			
+			<td>
+					<input type="radio" id="radio1" name="radio" ng-model="user.role" value="STUDENT">
+					<label for="radio1" style="font-weight:bold;color:#000;font-size:15px;">Student</label>
+					<input type="radio" id="radio2" name="radio"  ng-model="user.role" value="ALUMINI">
+					<label for="radio2"  style="font-weight:bold;color:#000;font-size:15px;">Alumini</label>
+					<input type="radio" id="radio3" name="radio"  ng-model="user.role" value="EMPLOYEE">
+					<label for="radio3"  style="font-weight:bold;color:#000;font-size:15px;">Employee</label>
+			</td>
+			</tr>	
+		     <tr>	
+				<td colspan="2"><input type="email" name="email" placeholder="Enter email" ng-model="user.email"  required="required">
+                    <span style="color:red">{{duplicateEmail.message}}</span>
+			        </td>
+			</tr>	
+			<tr>
+					
+					<td colspan="2"><input type="text" name="phonenumber" placeholder="Enter phonenumber" ng-model="user.phoneNumber"  maxlength="10" pattern="[789][0-9]{9}" required="required">
+                   </td>
+			</tr>	
+			<tr>
+					
+					<td colspan="2">
+					<select name="question" ng-model="user.question" required="required">
+					   <option value=""  selected="selected">Please select a name</option>
+					  <option value="Your Petname">Your Petname</option>
+					  <option value="Favourite Game">Favourite Game</option>
+					  <option value="Favourite Book">Favourite Book</option>
+					  <option value="Favourite Teacher Name">Favourite Teacher Name</option>
+					</select>
+			     </td>
+			</tr>	
+			<tr>
+					
+					<td colspan="2"><input type="text" name="answer" placeholder="Enter answer" ng-model="user.answer"  required="required">
+                   </td>
+			</tr>	
+			
+				<tr>
+					<td colspan="2">
+					  
+					  <input type="submit" ng-click="registerUser()" >
+					 
+					</td>
+					
+				</tr>
+			</table>
+		   
+		</table>
+	
+		
+		
+	
+	
+</form>
+	
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+
+
+
+body{
+	background: url(../images/back2.jpg) no-repeat 0px 0px;
+	background-size: cover;
+	
+}
+
+.maindiv .friendtab
+{
+	width:50%;
+	background-color: #ff0080;
+	text-align: center;
+	height:70px;
+	margin-left:350px;
+	font-size: 30px;
+	
+}
+
+.pic1
+{
+	
+	height:90px;
+	
+	
+}
+.pic2
+{
+	
+	
+	height:90px;
+	
+	
+}

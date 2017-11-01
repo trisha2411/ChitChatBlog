@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--  Bootstrap, Angular Js ,Angular Route js -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<link href="resources/css/design.css" rel="stylesheet"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="resources/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script src="resources/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="resources/bootstrap/dropdown.js"></script>
+<script>
+     $(document).ready(function(){
+        $('.dropdown-toggle').dropdown()
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="resources/angularjsfile/angular-cookies.js"></script>
+
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="controller/usercontroller.js"></script>
+<script type="text/javascript" src="service/userservice.js"></script>
+<script type="text/javascript" src="controller/jobcontroller.js"></script>
+<script type="text/javascript" src="controller/jobdetailscontroller.js"></script>
+<script type="text/javascript" src="service/jobservice.js"></script>
+<script type="text/javascript" src="controller/blogcontroller.js"></script>
+<script type="text/javascript" src="service/blogpostservice.js"></script>
+<script type="text/javascript" src="controller/blogpostdetailcontroller.js"></script>
+<script type="text/javascript" src="controller/homecontroller.js"></script>
+<script type="text/javascript" src="controller/friendcontroller.js"></script>
+<script type="text/javascript" src="service/friendservice.js"></script>
+<script src="js/sockjs/sockjs.js"></script>
+<script src="js/stomp/dist/stomp.js"></script>
+<script type="text/javascript" src="controller/chatcontroller.js"></script>
+<script type="text/javascript" src="service/chatservice.js"></script>
+<title>Insert title here</title>
+</head>
+<body ng-app="ngApp" >
+<header>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="container-fluid">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mypage" aria-expanded="false">
+     <span class="sr-only">Toggle navigation</span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+    </button>
+    <div class="navbar-header">
+  <a class="navbar-brand" href="#mypage">
+  <span style="background: #00ffff;padding: 3 16px;font-weight: bold; color: #000;">
+                                         Chit</span>ChatBlog</a>
+  <ul class="nav navbar-nav navbar-left ">
+  <li><a href="#!profilepic" ng-show="currentUser.userName">
+         <img src="http://localhost:8080/BackendProject2/getprofilepic/{{currentUser.userName}}" alt="upload Picture" width="30px" height="30px" class="img-rounded">
+         </a>
+    </li>
+    </ul>  
+</div>
+    <div class="collapse navbar-collapse" id="mypage">
+    <ul class="nav navbar-nav navbar-right">
+      
+      <li style="{color:white;}"><a href="https://www.facebook.com/"><span class="fa fa-facebook" style="font-size:20px;"></span></a></li>
+      <li style="{color:white;}"><a href="https://twitter.com/"><span class="fa fa-twitter" style="font-size:20px;"></span></a></li>
+      <li style="{color:white;}"><a href="https://www.youtube.com/"><span class="fa fa-youtube" style="font-size:20px;"></span></a></li>
+	  <li style="{color:white;}"><a href="https://www.google.co.in/"><span class="fa fa-google-plus" style="font-size:20px;"></span></a></li>
+      
+    </ul>
+  </div>
+  </div>
+<div class="container-fluid">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-example" aria-expanded="false">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div class="navbar-header">
+<ul class="nav navbar-nav navbar-left ">
+  <li class="dropdown">
+     <a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.userName"> 
+	 <span class="glyphicon glyphicon-cog"></span></a>
+	 					
+			<ul class="dropdown-menu">
+		         <li ><a href="#!editprofile" ng-show="currentUser.userName">Edit Profile</a></li>
+			     <li ><a href="" ng-click="logout()" ng-show="currentUser.userName">Logout</a></li>
+           
+			</ul>
+  </li>
+    <li><a href="" ng-show="currentUser.userName">Welcome {{currentUser.userName}}<span class="glyphicon glyphicon-user"></span></a></li>
+                
+</ul>
+</div>
+<div class="collapse navbar-collapse" id="collapse-example">
+              <ul class="nav navbar-nav navbar-right ">
+                <li><a href="#!home">Home</a></li>
+                <li><a href="#!aboutus">About us</a></li>
+                
+                <li><a href="#!registration" ng-hide="currentUser.userName">Sign Up</a></li>
+                <li><a href="#!login" ng-hide="currentUser.userName">Sign in</a></li>
+                
+                  <li><a href="#!getalljobs" >GetAllJObs</a></li>
+                 <li><a href="#!savejob" ng-show="currentUser.role=='ADMIN'">Add Job</a></li>
+              
+				<li class="dropdown">
+                   <a class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.userName">Blog
+                   <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#!saveblogpost">Add a Blog</a></li> 
+                        <li><a href="#!getallblogs">Get All Blogs</a></li>
+                    </ul>
+               </li>
+                <li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.userName"> Friend <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#!suggestedusers">List of suggested users</a></li>
+							<li><a href="#!pendingrequests">Pending Requests</a></li>
+							<li><a href="#!getfriends">Friends({{noOfFriends}})</a></li>
+							<li><a></a></li>
+						</ul>
+				</li>
+				
+						
+               <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.userName"> 
+						<span class="glyphicon glyphicon-globe">
+						<span class="rw-number-notification"  ng-if="approvalStatus.length>0" >{{approvalStatus.length}}</span></span></a> 
+						
+						<ul class="dropdown-menu">
+						    
+							<li ng-repeat="blogPostStatus in approvalStatus">
+							<a href="#!approvalstatus/{{blogPostStatus.id}}">"{{blogPostStatus.blogTitle}}" is 
+							      <span ng-if="blogPostStatus.approved">Approved</span>
+							      <span ng-if="!blogPostStatus.approved">Rejected</span></a></li>
+							
+						</ul>
+			 </li>
+			 
+			 <li><a href="#!chat" ng-show="currentUser.userName">chat </a></li>
+                   </ul>
+
+</div>
+</div>
+</nav>
+</header>
+<div ng-view="" style="margin-top:120px; "></div>
+ <div class="footer_bottom section" style="background-color: #2d2d30;">
+		<div class="agileits-w3layouts-footer">
+			<div class="container">
+				<div class="col-md-4 w3-agile-grid">
+					<h5>About Us</h5>
+					<p>hjvh,vjh,vy</p>
+					   <div class="w3_agileits_social_media team_agile_w3l team footer">
+								<ul class="social-icons3">
+									
+									<li style="{color:white;}"><a href="#"><span class="fa fa-facebook" style="font-size:20px;"></span></a>&nbsp&nbsp&nbsp
+								      <a href="#"><span class="fa fa-twitter" style="font-size:20px;"></span></a>&nbsp&nbsp&nbsp
+								      <a href="#"><span class="fa fa-youtube" style="font-size:20px;"></span></a>&nbsp&nbsp&nbsp
+									  <a href="#"><span class="fa fa-google-plus" style="font-size:20px;"></span></a>
+									</li>
+								</ul>
+							</div>	
+				
+				<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 w3-agile-grid mid-w3-add">
+					<h5>Address</h5>
+					<div class="w3-address">
+						<div class="w3-address-grid">
+							<div class="w3-address-left">
+								<i class="fa fa-phone" aria-hidden="true"></i>
+							</div>
+							<div class="w3-address-right">
+								<h6>Phone Number</h6>
+								<p>+91 9899630747</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="w3-address-grid">
+							<div class="w3-address-left">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+							</div>
+							<div class="w3-address-right">
+								<h6>Email Address</h6>
+								<p>Email :<a href="mailto:trisha.trisha2411@gmail.com"> trisha.trisha2411@gmail.com</a></p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="w3-address-grid">
+							<div class="w3-address-left">
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+							</div>
+							<div class="w3-address-right">
+								<h6>Location</h6>
+								<p>New Delhi. 
+								<span>Telephone : +91 9899630747</span>
+								</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 footer-right w3-agile-grid">
+					<div class="agile_footer_grid">
+					<h5>Our Informations</h5>
+						<ul>
+						<li><a href="#!home">Home</a></li>
+						<li><a href="#!login">Sign In</a></li>
+						<li><a href="#!registrationform">Sign Up</a></li>
+						<li><a href="#!aboutus">About</a></li>
+						<li><a href="#!contact">Contact</a></li>
+					</ul>
+
+					</div>
+					<h5>Stay in Touch</h5>
+					<form action="#" method="post">
+						<input type="email" name="Email" placeholder="Email Id" required="">
+						<input type="submit" value="Subscribe">
+					</form>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="copyright">
+	           <p>© 2017 ChitChatBlog. All rights reserved</p>
+        </div>
+  </div>
+ 
+ 
+</body>
+   
+</html>

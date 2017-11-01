@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="resources/css/blogpostdetailsdesign.css" rel="stylesheet"/>
+</head>
+<body>
+<form ng-show="currentUser.role=='ADMIN'">
+<div class="form-group">
+<input type="radio" ng-model="blogPost.approved" value="true" ng-click="setValueForRejectionTxt(false)">Approve
+<input type="radio" ng-model="blogPost.approved" value="false" ng-click="setValueForRejectionTxt(true)">Reject<br>
+<p ng-show="showRejectionTxt">
+Enter Reason for Rejection<br>
+<textarea rows="3" cols="10" ng-model="blogPost.rejectionReason"></textarea>
+
+</p>
+<input type="submit" ng-click="updateApproval()" value="Update">
+</div>
+</form>
+<div id="tour" class="bg-1">
+  <h2 style="text-align: left;color:#000; margin-top:10px;">
+        <b>Created By:</b>{{blogPost.postedBy.userName}}
+        <b>On: </b>{{blogPost.postedOn | date:'medium'}}
+        <a><span class="glyphicon glyphicon-thumbs-up" ng-class="isLiked?'liked:'default'" ng-click="updateLikes()"></span></a>
+   </h2>{{blogPost.likes}}Likes<br>
+   <h1 style="text-align:center;color:#000;font-size: 80px;text-decoration: underline;">
+   {{blogPost.blogTitle}}
+   </h1>
+   <br>
+   <img src="resources/images/{{blogPost.id}}.jpg" height="100" width="100" alt="not image">
+      <div class="row text-center" > 
+        <h2 style="text-align:left;margin-left:80px;color:#000;"><b>Blog Description</b>
+        </h2>   
+          <div class="col-sm-4" style="width:40%;margin-left:30px;">
+           <div class="thumbnail">
+            <p style="text-align: left;color:#000;">{{blogPost.blogDescription}}</p> 
+          </div>
+       </div>
+       </div><br>
+       <div class="row text-center" >    
+          <div class="col-sm-4" style="width:80%;margin-left:350px;">
+          
+         <h2 style="text-align:center;color:#000;letter-spacing: 0px;"><b>Comments Here</b></h2>
+          <form>
+			{{error.message}}
+			<textarea rows="4" cols="15" style="width:50%;height:40%;margin-left:250px;" ng-model="blogComment.commentText"></textarea>
+			<br>
+			<input type="submit" style="margin-left:535px;color:#000;width:23%;" ng-click="addComment()">
+	     </form>
+	     
+       </div>
+       </div>
+       
+  <div class="container"  >
+    <div class="row text-center" >
+      <div class="col-sm-4" style="width:80%;"  ng-repeat="blogComment in blogComments" | orderBy:'time':'true'">
+        <div class="thumbnail">
+        <table style="width:100%;">
+          <tr>
+          <td style="width:20%;">
+          <div class="imgdiv">
+               <h2 style="text-align: center;color:#000;">{{blogComment.commentedBy.userName}}</h2>
+            <img src="resources/images/i7.jpg" width="90" height="90" style="margin-left:5px;" alt="Card image cap">
+          
+          </div>
+          </td>
+            
+          <td style="text-align:right;">
+             <table style="width:100%;">
+             <tr>
+                <td>
+                   <p style="text-align:right;margin-right:20px;" >{{blogComment.commentedOn | date : 'MM/dd/yyyy'}}</p>
+         
+                </td>
+             </tr>
+             <tr>
+             <td>
+                
+                 
+              
+                  <p style="text-align:right;margin-right:20px;">{{blogComment.commentText}}</p>
+              
+             </td>
+             </tr>
+              
+            </table>
+             
+          </td>
+          </tr>
+        </table>
+          
+        </div>
+      </div>
+      
+      </div>
+      </div>
+      </div>
+
+         
+
+
+</body>
+</html>
